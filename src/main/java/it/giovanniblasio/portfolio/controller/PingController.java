@@ -23,7 +23,7 @@ public class PingController {
     }
 
     @GetMapping("/ping")
-    @ResponseStatus (HttpStatus.OK)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<BaseResponseDto<PingResponseDto>> getPing() {
         PingResponseDto pingResponse = new PingResponseDto("UP", System.currentTimeMillis());
 
