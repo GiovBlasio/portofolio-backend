@@ -25,11 +25,13 @@ public class PingControllerTest {
         ResultMatcher contentTypeMatcher = MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON);
         ResultMatcher jsonPathMatcher = MockMvcResultMatchers.jsonPath("$.data.timestamp").exists();
         ResultMatcher statusPathMatcher = MockMvcResultMatchers.jsonPath("$.data.status").value("UP");
+        ResultMatcher errorPathMatcher = MockMvcResultMatchers.jsonPath("$.data.error").exists();
 
         mockMvc.perform(requestBuilder)
                 .andExpect(statusMatcher)
                 .andExpect(contentTypeMatcher)
                 .andExpect(jsonPathMatcher)
-                .andExpect(statusPathMatcher);
+                .andExpect(statusPathMatcher)
+                .andExpect(errorPathMatcher);
     }
 }
